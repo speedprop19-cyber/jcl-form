@@ -89,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = Object.fromEntries(formData.entries());
 
         // Replace with your Google Apps Script Web App URL
-        const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyuK0c4nQjOZKiyWjVA9x8YdtHF4DKJdzHFfybbS-XO3MNjyg2DFcbhphJPEYughJsF/exec';
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
 
         try {
             // For now, we simulate success if no URL is provided
-            if (scriptURL === 'https://script.google.com/macros/s/AKfycbze9sgFeRY9uR8e_9gxXZuahKTrK_Rx9XHd1afc6GrWaK8Ux9YNUxpU8P874BMUKhdl9Q/exec') {
+            if (scriptURL === 'https://script.google.com/macros/s/AKfycbyuK0c4nQjOZKiyWjVA9x8YdtHF4DKJdzHFfybbS-XO3MNjyg2DFcbhphJPEYughJsF/exec') {
                 console.log("Data captured:", data);
                 setTimeout(() => {
                     successModal.style.display = 'flex';
