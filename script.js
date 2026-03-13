@@ -95,22 +95,17 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.textContent = 'Submitting...';
 
         try {
-            // For now, we simulate success if no URL is provided
-            if (scriptURL === 'https://script.google.com/macros/s/AKfycbyuK0c4nQjOZKiyWjVA9x8YdtHF4DKJdzHFfybbS-XO3MNjyg2DFcbhphJPEYughJsF/exec') {
-                console.log("Data captured:", data);
-                setTimeout(() => {
-                    successModal.style.display = 'flex';
-                }, 1000);
-            } else {
-                const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Apps Script often requires no-cors for simple posts
-                    cache: 'no-cache',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                successModal.style.display = 'flex';
-            }
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // Apps Script requires no-cors for simple posts from different origins
+                cache: 'no-cache',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            // In no-cors mode, we can't see the response body, so we assume success if no error is thrown
+            console.log("Submission attempt sent:", data);
+            successModal.style.display = 'flex';
         } catch (error) {
             console.error('Submission Error:', error);
             alert("An error occurred during submission. Please try again.");
