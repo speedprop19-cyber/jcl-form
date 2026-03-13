@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form | Premium Credit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-decor"></div>
+    
+    <div class="container">
+        <div class="form-wrapper">
+            <header>
+                <h1>Credit Application</h1>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <div class="progress-steps">
+                        <span class="step-label active">1</span>
+                        <span class="step-label">2</span>
+                        <span class="step-label">3</span>
+                        <span class="step-label">4</span>
+                        <span class="step-label">5</span>
+                        <span class="step-label">6</span>
+                    </div>
+                </div>
+                <p id="step-title">Step 1: Basic Information</p>
+            </header>
+
+            <form id="multi-step-form">
+                <!-- Step 1: Application Details -->
+                <div class="form-step active" data-step="1">
+                    <div class="input-group">
+                        <label for="nric">NRIC No. *</label>
+                        <input type="text" id="nric" name="nric" placeholder="e.g. 900101-01-5555" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select</option>
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                            </select>
+                        </div>
+                        <div class="input-group col">
+                            <label for="marital_status">Marital Status *</label>
+                            <select id="marital_status" name="marital_status" required>
+                                <option value="">Select</option>
+                                <option value="SINGLE">Single</option>
+                                <option value="MARRIED">Married</option>
+                                <option value="DIVORCED">Divorced</option>
+                                <option value="WIDOWED">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="bank_name">Bank Name *</label>
+                            <select id="bank_name" name="bank_name" required>
+                                <option value="">Select Bank</option>
+                                <option value="MAYBANK">Maybank</option>
+                                <option value="CIMB">CIMB Bank</option>
+                                <option value="PUBLIC BANK">Public Bank</option>
+                                <option value="RHB">RHB Bank</option>
+                                <option value="HONG LEONG">Hong Leong Bank</option>
+                                <option value="AMBANK">AmBank</option>
+                                <option value="BANK ISLAM">Bank Islam</option>
+                            </select>
+                        </div>
+                        <div class="input-group col">
+                            <label for="bank_acc">Bank Account No. *</label>
+                            <input type="text" id="bank_acc" name="bank_acc" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Contact Details -->
+                <div class="form-step" data-step="2">
+                    <div class="input-group">
+                        <label for="address1">Current Address Line 1 *</label>
+                        <input type="text" id="address1" name="address1" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="address2">Address Line 2</label>
+                        <input type="text" id="address2" name="address2">
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="postcode">Postcode *</label>
+                            <input type="text" id="postcode" name="postcode" required>
+                        </div>
+                        <div class="input-group col">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="state">State *</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            <option value="SELANGOR">Selangor</option>
+                            <option value="KUALA LUMPUR">Kuala Lumpur</option>
+                            <option value="JOHOR">Johor</option>
+                            <option value="PENANG">Penang</option>
+                            <option value="PERAK">Perak</option>
+                            <!-- Others simplified for demo -->
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="mobile_tel">Mobile Tel. *</label>
+                            <input type="tel" id="mobile_tel" name="mobile_tel" placeholder="0123456789" required>
+                        </div>
+                        <div class="input-group col">
+                            <label for="home_tel">Home Tel.</label>
+                            <input type="tel" id="home_tel" name="home_tel">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="input-group col">
+                            <label for="contact_time">Best Time to Contact</label>
+                            <select id="contact_time" name="contact_time">
+                                <option value="ANYTIME">Anytime</option>
+                                <option value="MORNING">Morning (9am - 12pm)</option>
+                                <option value="AFTERNOON">Afternoon (12pm - 5pm)</option>
+                                <option value="EVENING">Evening (5pm - 9pm)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Emergency Contacts -->
+                <div class="form-step" data-step="3">
+                    <h3>Emergency Contact #1</h3>
+                    <div class="input-group">
+                        <label for="emer1_name">Name *</label>
+                        <input type="text" id="emer1_name" name="emer1_name" required>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="emer1_rel">Relationship *</label>
+                            <select id="emer1_rel" name="emer1_rel" required>
+                                <option value="">Select</option>
+                                <option value="SPOUSE">Spouse</option>
+                                <option value="PARENT">Parent</option>
+                                <option value="SIBLING">Sibling</option>
+                                <option value="FRIEND">Friend</option>
+                            </select>
+                        </div>
+                        <div class="input-group col">
+                            <label for="emer1_tel">Mobile Tel. *</label>
+                            <input type="tel" id="emer1_tel" name="emer1_tel" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>Emergency Contact #2</h3>
+                    <div class="input-group">
+                        <label for="emer2_name">Name *</label>
+                        <input type="text" id="emer2_name" name="emer2_name" required>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="emer2_rel">Relationship *</label>
+                            <select id="emer2_rel" name="emer2_rel" required>
+                                <option value="">Select</option>
+                                <option value="SPOUSE">Spouse</option>
+                                <option value="PARENT">Parent</option>
+                                <option value="SIBLING">Sibling</option>
+                                <option value="FRIEND">Friend</option>
+                            </select>
+                        </div>
+                        <div class="input-group col">
+                            <label for="emer2_tel">Mobile Tel. *</label>
+                            <input type="tel" id="emer2_tel" name="emer2_tel" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Employment -->
+                <div class="form-step" data-step="4">
+                    <div class="input-group">
+                        <label for="emp_name">Employer Name *</label>
+                        <input type="text" id="emp_name" name="emp_name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="emp_address">Employer Address *</label>
+                        <input type="text" id="emp_address" name="emp_address" required>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="office_tel">Office Tel. *</label>
+                            <input type="tel" id="office_tel" name="office_tel" required>
+                        </div>
+                        <div class="input-group col">
+                            <label for="occupation">Occupation *</label>
+                            <input type="text" id="occupation" name="occupation" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col">
+                            <label for="income">Monthly Income (RM) *</label>
+                            <input type="number" id="income" name="income" required>
+                        </div>
+                        <div class="input-group col">
+                            <label for="service_years">Years of Service *</label>
+                            <input type="number" id="service_years" name="service_years" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Product Selection -->
+                <div class="form-step" data-step="5">
+                    <div class="input-group">
+                        <label for="prod_group">Product Group *</label>
+                        <select id="prod_group" name="prod_group" required>
+                            <option value="H">Hire Purchase</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="product">Product *</label>
+                        <select id="product" name="product" required>
+                            <option value="HPM">HP - MOTORCYCLE</option>
+                            <option value="SHM">HP - SECOND HAND MOTOR</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="brand">Brand *</label>
+                        <select id="brand" name="brand" required>
+                            <option value="">Select Brand</option>
+                            <option value="MT_HONDA">HONDA</option>
+                            <option value="MT_YAMAHA">YAMAHA</option>
+                            <option value="MT_SUZUKI">SUZUKI</option>
+                            <option value="MT_MODENAS">MODENAS</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="model">Model *</label>
+                        <input type="text" id="model" name="model" placeholder="Enter Model Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="price">Cash Price (RM) *</label>
+                        <input type="number" id="price" name="price" step="0.01" required>
+                    </div>
+                </div>
+
+                <!-- Step 6: Confirmation -->
+                <div class="form-step" data-step="6">
+                    <div class="confirmation-box">
+                        <p>I/We hereby give consent to process and store my data for this application and credit checks.</p>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I agree to the Terms and Conditions</label>
+                        </div>
+                    </div>
+                    <div class="summary-preview">
+                        <!-- Summary could be dynamically built here -->
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" id="prev-btn" class="btn btn-secondary" style="display: none;">Back</button>
+                    <button type="button" id="next-btn" class="btn btn-primary">Next</button>
+                    <button type="submit" id="submit-btn" class="btn btn-success" style="display: none;">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h2>Submitted!</h2>
+            <p>Your application has been received. We will contact you shortly.</p>
+            <button onclick="location.reload()" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
