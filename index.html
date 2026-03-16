@@ -10,274 +10,1010 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="background-decor"></div>
-
     <div class="container">
         <div class="form-wrapper">
             <header>
-                <h1>Credit Application</h1>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                    <div class="progress-steps">
-                        <span class="step-label active">1</span>
-                        <span class="step-label">2</span>
-                        <span class="step-label">3</span>
-                        <span class="step-label">4</span>
-                        <span class="step-label">5</span>
-                        <span class="step-label">6</span>
+                <div class="step-indicator">
+                    <span id="step-label-text">Step 1 of 7</span>
+                    <div class="progress-container">
+                        <div class="progress-segment active" data-step="1"></div>
+                        <div class="progress-segment" data-step="2"></div>
+                        <div class="progress-segment" data-step="3"></div>
+                        <div class="progress-segment" data-step="4"></div>
+                        <div class="progress-segment" data-step="5"></div>
+                        <div class="progress-segment" data-step="6"></div>
+                        <div class="progress-segment" data-step="7"></div>
+                        <div class="progress-segment" data-step="8"></div>
+                        <div class="progress-segment" data-step="9"></div>
                     </div>
                 </div>
-                <p id="step-title">Step 1: Basic Information</p>
+                <h1 id="step-title">Applicant Details</h1>
             </header>
 
             <form id="multi-step-form">
-                <!-- Step 1: Application Details -->
+                <!-- Step 1: Applicant Details -->
                 <div class="form-step active" data-step="1">
-                    <div class="input-group">
-                        <label for="nric">NRIC No. *</label>
-                        <input type="text" id="nric" name="nric" placeholder="e.g. 900101-01-5555" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="gender">Gender *</label>
-                            <select id="gender" name="gender" required>
-                                <option value="">Select</option>
-                                <option value="MALE">Male</option>
-                                <option value="FEMALE">Female</option>
-                            </select>
+                    <div class="field-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="name" name="name" required>
+                            <span class="input-icon">✕</span>
                         </div>
-                        <div class="input-group col">
-                            <label for="marital_status">Marital Status *</label>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="race">Race <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="race" name="race" required>
+                                <option value="">Select</option>
+                                <option value="MALAY">MALAY</option>
+                                <option value="CHINESE">CHINESE</option>
+                                <option value="INDIAN">INDIAN</option>
+                                <option value="OTHERS">OTHERS</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="nric">New NRIC No <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="nric" name="nric" required placeholder="">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="sex">Sex <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="sex" name="gender" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="housing_status">Housing Status <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="housing_status" name="housing_status" required>
+                                <option value="">Select</option>
+                                <option value="COMPANY'S APARTMENT">COMPANY'S APARTMENT</option>
+                                <option value="FAMILY'S PROPERTY">FAMILY'S PROPERTY</option>
+                                <option value="OWN PROPERTY">OWN PROPERTY</option>
+                                <option value="PARENT'S PROPERTY">PARENT'S PROPERTY</option>
+                                <option value="RENTING">RENTING</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="dob">Date of Birth <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="dob" name="dob" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="police_id">Police ID No</label>
+                        <div class="input-container">
+                            <input type="text" id="police_id" name="police_id">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="marital_status">Marital Status <span class="required">*</span></label>
+                        <div class="input-container">
                             <select id="marital_status" name="marital_status" required>
                                 <option value="">Select</option>
-                                <option value="SINGLE">Single</option>
-                                <option value="MARRIED">Married</option>
-                                <option value="DIVORCED">Divorced</option>
-                                <option value="WIDOWED">Widowed</option>
+                                <option value="SINGLE">SINGLE</option>
+                                <option value="MARRIED">MARRIED</option>
+                                <option value="DIVORCED">DIVORCED</option>
+                                <option value="WIDOWED">WIDOWED</option>
                             </select>
+                            <span class="input-icon">▼</span>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="bank_name">Bank Name *</label>
+
+                    <div class="field-group">
+                        <label for="bank_name">Bank Name <span class="required">*</span></label>
+                        <div class="input-container">
                             <select id="bank_name" name="bank_name" required>
-                                <option value="">Select Bank</option>
-                                <option value="MAYBANK">Maybank</option>
-                                <option value="CIMB">CIMB Bank</option>
-                                <option value="PUBLIC BANK">Public Bank</option>
-                                <option value="RHB">RHB Bank</option>
-                                <option value="HONG LEONG">Hong Leong Bank</option>
-                                <option value="AMBANK">AmBank</option>
-                                <option value="BANK ISLAM">Bank Islam</option>
+                                <option value="">Select</option>
+                                <option value="AFFIN BANK BERHAD">AFFIN BANK BERHAD</option>
+                                <option value="AFFIN ISLAMIC BANK">AFFIN ISLAMIC BANK</option>
+                                <option value="AL-RAJHI BANKING & INVESTMENT CORP(M) BERHAD">AL-RAJHI BANKING &
+                                    INVESTMENT CORP(M) BERHAD</option>
+                                <option value="ALLIANCE BANK MALAYSIA BERHAD">ALLIANCE BANK MALAYSIA BERHAD</option>
+                                <option value="AMBANK (M) BERHAD">AMBANK (M) BERHAD</option>
+                                <option value="BANGKOK BANK BERHAD">BANGKOK BANK BERHAD</option>
+                                <option value="BANK ISLAM MALAYSIA BERHAD">BANK ISLAM MALAYSIA BERHAD</option>
+                                <option value="BANK KERJASAMA RAKYAT MALAYSIA BERHAD">BANK KERJASAMA RAKYAT MALAYSIA
+                                    BERHAD</option>
+                                <option value="BANK MUAMALAT MALAYSIA BERHAD">BANK MUAMALAT MALAYSIA BERHAD</option>
+                                <option value="BANK OF AMERICA(M) BERHAD">BANK OF AMERICA(M) BERHAD</option>
+                                <option value="BANK OF CHINA(MALAYSIA) BERHAD">BANK OF CHINA(MALAYSIA) BERHAD</option>
+                                <option value="BANK OF TOKYO-MITSUBISHI UFJ(M) BERHAD">BANK OF TOKYO-MITSUBISHI UFJ(M)
+                                    BERHAD</option>
+                                <option value="BANK PERTANIAN MALAYSIA BERHAD">BANK PERTANIAN MALAYSIA BERHAD</option>
+                                <option value="BANK SIMPANAN NASIONAL BERHAD">BANK SIMPANAN NASIONAL BERHAD</option>
+                                <option value="BNP PARIBAS MALAYSIA">BNP PARIBAS MALAYSIA</option>
+                                <option value="CIMB BANK BERHAD">CIMB BANK BERHAD</option>
+                                <option value="CITIBANK BERHAD">CITIBANK BERHAD</option>
+                                <option value="CO OPBANK PERSATUAN">CO OPBANK PERSATUAN</option>
+                                <option value="DEUTSCHE BANK(MSIA)BERHAD">DEUTSCHE BANK(MSIA)BERHAD</option>
+                                <option value="HONG LEONG BANK">HONG LEONG BANK</option>
+                                <option value="HSBC BANK MALAYSIA BERHAD">HSBC BANK MALAYSIA BERHAD</option>
+                                <option value="INDUSTRIAL & COMMERCIAL BANK OF CHINA">INDUSTRIAL & COMMERCIAL BANK OF
+                                    CHINA</option>
+                                <option value="J.P.MORGAN CHASE BANK BERHAD">J.P.MORGAN CHASE BANK BERHAD</option>
+                                <option value="KUWAIT FINANCE HOUSE(MALAYSIA)BHD">KUWAIT FINANCE HOUSE(MALAYSIA)BHD
+                                </option>
+                                <option value="MALAYAN BANKING BERHAD">MALAYAN BANKING BERHAD</option>
+                                <option value="MBSB Bank Berhad">MBSB Bank Berhad</option>
+                                <option value="MIZUHO CORPORATE BANK MALAYSIA">MIZUHO CORPORATE BANK MALAYSIA</option>
+                                <option value="OCBC BANK(MALAYSIA) BHD">OCBC BANK(MALAYSIA) BHD</option>
+                                <option value="PUBLIC BANK BERHAD">PUBLIC BANK BERHAD</option>
+                                <option value="RHB BANK BERHAD">RHB BANK BERHAD</option>
+                                <option value="STANDARD CHARTERED BANK BERHAD">STANDARD CHARTERED BANK BERHAD</option>
+                                <option value="SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BHD">SUMITOMO MITSUI BANKING
+                                    CORPORATION MALAYSIA BHD</option>
+                                <option value="THE ROYAL BANK OF SCOTLAND BERHAD">THE ROYAL BANK OF SCOTLAND BERHAD
+                                </option>
+                                <option value="UNITED OVERSEAS BANK BERHAD">UNITED OVERSEAS BANK BERHAD</option>
                             </select>
+                            <span class="input-icon">▼</span>
                         </div>
-                        <div class="input-group col">
-                            <label for="bank_acc">Bank Account No. *</label>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="bank_acc_type">Type of Account <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="bank_acc_type" name="account_type" required>
+                                <option value="">Select</option>
+                                <option value="SAVINGS">SAVINGS ACCOUNT</option>
+                                <option value="CURRENT">CURRENT ACCOUNT</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="bank_acc">Account Number <span class="required">*</span></label>
+                        <div class="input-container">
                             <input type="text" id="bank_acc" name="bank_acc" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="acc_holder">Account Holder Name <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="acc_holder" name="account_holder" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="tax_id">Tax Identification Number</label>
+                        <div class="input-container">
+                            <input type="text" id="tax_id" name="tax_id">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="sst_no">SST Registration Number</label>
+                        <div class="input-container">
+                            <input type="text" id="sst_no" name="sst_no">
+                            <span class="input-icon">✕</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 2: Contact Details -->
                 <div class="form-step" data-step="2">
-                    <div class="input-group">
-                        <label for="address1">Current Address Line 1 *</label>
-                        <input type="text" id="address1" name="address1" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="address2">Address Line 2</label>
-                        <input type="text" id="address2" name="address2">
-                    </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="postcode">Postcode *</label>
-                            <input type="text" id="postcode" name="postcode" required>
-                        </div>
-                        <div class="input-group col">
-                            <label for="city">City *</label>
-                            <input type="text" id="city" name="city" required>
+                    <div class="field-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="email" id="email" name="email" required>
+                            <span class="input-icon">✕</span>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <label for="state">State *</label>
-                        <select id="state" name="state" required>
-                            <option value="">Select State</option>
-                            <option value="SELANGOR">Selangor</option>
-                            <option value="KUALA LUMPUR">Kuala Lumpur</option>
-                            <option value="JOHOR">Johor</option>
-                            <option value="PENANG">Penang</option>
-                            <option value="PERAK">Perak</option>
-                            <!-- Others simplified for demo -->
-                        </select>
-                    </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="mobile_tel">Mobile Tel. *</label>
-                            <input type="tel" id="mobile_tel" name="mobile_tel" placeholder="0123456789" required>
+
+                    <div class="field-group">
+                        <label for="mobile_tel">Handphone No <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="tel" id="mobile_tel" name="mobile_tel" required>
+                            <span class="input-icon">✕</span>
                         </div>
-                        <div class="input-group col">
-                            <label for="home_tel">Home Tel.</label>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="home_tel">Home Tel No</label>
+                        <div class="input-container">
                             <input type="tel" id="home_tel" name="home_tel">
+                            <span class="input-icon">✕</span>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email">
+
+                    <div class="field-group">
+                        <label for="postcode">Postcode <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="postcode" name="postcode" required>
+                            <span class="input-icon">✕</span>
                         </div>
-                        <div class="input-group col">
-                            <label for="contact_time">Best Time to Contact</label>
-                            <select id="contact_time" name="contact_time">
-                                <option value="ANYTIME">Anytime</option>
-                                <option value="MORNING">Morning (9am - 12pm)</option>
-                                <option value="AFTERNOON">Afternoon (12pm - 5pm)</option>
-                                <option value="EVENING">Evening (5pm - 9pm)</option>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="city" name="city" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="state">State <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="state" name="state" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="address1">Address Line 1 <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="address1" name="address1" required
+                                placeholder="House Unit Number, Street">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="address2">Address Line 2 <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="address2" name="address2" required
+                                placeholder="Housing area (Taman)">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="stay_duration">Length of Stay <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="stay_duration" name="stay_duration" required>
+                                <option value="">Select</option>
+                                <option value="BELOW 1 YEAR">BELOW 1 YEAR</option>
+                                <option value="1 - 3 YEARS">1 - 3 YEARS</option>
+                                <option value="4 - 10 YEARS">4 - 10 YEARS</option>
+                                <option value="ABOVE 10 YEARS">ABOVE 10 YEARS</option>
                             </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="contact_time">Best Time to Contact <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="contact_time" name="contact_time" required>
+                                <option value="">Select</option>
+                                <option value="9:00AM TO 10:00AM">9:00AM TO 10:00AM</option>
+                                <option value="10:00AM TO 11:00AM">10:00AM TO 11:00AM</option>
+                                <option value="11:00AM TO 12:00PM">11:00AM TO 12:00PM</option>
+                                <option value="12:00PM TO 1:00PM">12:00PM TO 1:00PM</option>
+                                <option value="1:00PM TO 2:00PM">1:00PM TO 2:00PM</option>
+                                <option value="2:00PM TO 3:00PM">2:00PM TO 3:00PM</option>
+                                <option value="3:00PM TO 4:00PM">3:00PM TO 4:00PM</option>
+                                <option value="4:00PM TO 5:00PM">4:00PM TO 5:00PM</option>
+                                <option value="5:00PM TO 6:00PM">5:00PM TO 6:00PM</option>
+                                <option value="ANYTIME PERIOD">ANYTIME PERIOD</option>
+                            </select>
+                            <span class="input-icon">▼</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Step 3: Emergency Contacts -->
+                <!-- Step 3: Emergency Contacts (Part 1) -->
                 <div class="form-step" data-step="3">
-                    <h3>Emergency Contact #1</h3>
-                    <div class="input-group">
-                        <label for="emer1_name">Name *</label>
-                        <input type="text" id="emer1_name" name="emer1_name" required>
-                    </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="emer1_rel">Relationship *</label>
-                            <select id="emer1_rel" name="emer1_rel" required>
+                    <h2 class="step-subtitle">Emergency Contact #1</h2>
+
+                    <div class="field-group">
+                        <label for="emergency_relationship">Relationship <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="emergency_relationship" name="emer1_rel" required>
                                 <option value="">Select</option>
-                                <option value="SPOUSE">Spouse</option>
-                                <option value="PARENT">Parent</option>
-                                <option value="SIBLING">Sibling</option>
-                                <option value="FRIEND">Friend</option>
+                                <option value="SPOUSE">SPOUSE</option>
+                                <option value="SIBLING">SIBLING</option>
+                                <option value="PARENT">PARENT</option>
                             </select>
-                        </div>
-                        <div class="input-group col">
-                            <label for="emer1_tel">Mobile Tel. *</label>
-                            <input type="tel" id="emer1_tel" name="emer1_tel" required>
+                            <span class="input-icon">▼</span>
                         </div>
                     </div>
-                    <hr>
-                    <h3>Emergency Contact #2</h3>
-                    <div class="input-group">
-                        <label for="emer2_name">Name *</label>
-                        <input type="text" id="emer2_name" name="emer2_name" required>
+
+                    <div class="field-group">
+                        <label for="emergency_name">Full Name <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency_name" name="emer1_name" required>
+                            <span class="input-icon">✕</span>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="emer2_rel">Relationship *</label>
-                            <select id="emer2_rel" name="emer2_rel" required>
+
+                    <div class="field-group">
+                        <label for="emergency_stay">Stay with Applicant? <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="emergency_stay" name="emer1_stay" required>
                                 <option value="">Select</option>
-                                <option value="SPOUSE">Spouse</option>
-                                <option value="PARENT">Parent</option>
-                                <option value="SIBLING">Sibling</option>
-                                <option value="FRIEND">Friend</option>
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
                             </select>
+                            <span class="input-icon">▼</span>
                         </div>
-                        <div class="input-group col">
-                            <label for="emer2_tel">Mobile Tel. *</label>
-                            <input type="tel" id="emer2_tel" name="emer2_tel" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_postcode">Postcode <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency_postcode" name="emer1_postcode" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_city">City <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency_city" name="emer1_city" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_state">State <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency_state" name="emer1_state" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_address1">Address Line 1 <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency_address1" name="emer1_add1" required
+                                placeholder="House Unit Number, Street">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_address2">Address Line 2</label>
+                        <div class="input-container">
+                            <input type="text" id="emergency_address2" name="emer1_add2"
+                                placeholder="Housing area (Taman)">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_phone">Handphone No. <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="tel" id="emergency_phone" name="emer1_tel" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency_contact_time">Best time to Contact <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="emergency_contact_time" name="emer1_contact_time" required>
+                                <option value="">Select</option>
+                                <option value="9:00AM TO 10:00AM">9:00AM TO 10:00AM</option>
+                                <option value="10:00AM TO 11:00AM">10:00AM TO 11:00AM</option>
+                                <option value="11:00AM TO 12:00PM">11:00AM TO 12:00PM</option>
+                                <option value="12:00PM TO 1:00PM">12:00PM TO 1:00PM</option>
+                                <option value="1:00PM TO 2:00PM">1:00PM TO 2:00PM</option>
+                                <option value="2:00PM TO 3:00PM">2:00PM TO 3:00PM</option>
+                                <option value="3:00PM TO 4:00PM">3:00PM TO 4:00PM</option>
+                                <option value="4:00PM TO 5:00PM">4:00PM TO 5:00PM</option>
+                                <option value="5:00PM TO 6:00PM">5:00PM TO 6:00PM</option>
+                                <option value="ANYTIME PERIOD">ANYTIME PERIOD</option>
+                            </select>
+                            <span class="input-icon">▼</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 4: Employment -->
+                <!-- Step 3: Emergency Contacts (Part 2) -->
                 <div class="form-step" data-step="4">
-                    <div class="input-group">
-                        <label for="emp_name">Employer Name *</label>
-                        <input type="text" id="emp_name" name="emp_name" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="emp_address">Employer Address *</label>
-                        <input type="text" id="emp_address" name="emp_address" required>
-                    </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="office_tel">Office Tel. *</label>
-                            <input type="tel" id="office_tel" name="office_tel" required>
-                        </div>
-                        <div class="input-group col">
-                            <label for="occupation">Occupation *</label>
-                            <input type="text" id="occupation" name="occupation" required>
+                    <h2 class="step-subtitle">Emergency Contact #2</h2>
+
+                    <div class="field-group">
+                        <label for="emergency2_relationship">Relationship <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="emergency2_relationship" name="emer2_rel" required>
+                                <option value="">Select</option>
+                                <option value="SPOUSE">SPOUSE</option>
+                                <option value="SIBLING">SIBLING</option>
+                                <option value="PARENT">PARENT</option>
+                            </select>
+                            <span class="input-icon">▼</span>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-group col">
-                            <label for="income">Monthly Income (RM) *</label>
-                            <input type="number" id="income" name="income" required>
+
+                    <div class="field-group">
+                        <label for="emergency2_name">Full Name <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency2_name" name="emer2_name" required>
+                            <span class="input-icon">✕</span>
                         </div>
-                        <div class="input-group col">
-                            <label for="service_years">Years of Service *</label>
-                            <input type="number" id="service_years" name="service_years" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_stay">Stay with Applicant? <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="emergency2_stay" name="emer2_stay" required>
+                                <option value="">Select</option>
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_postcode">Postcode <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency2_postcode" name="emer2_postcode" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_city">City <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency2_city" name="emer2_city" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_state">State <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency2_state" name="emer2_state" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_address1">Address Line 1 <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="emergency2_address1" name="emer2_add1" required
+                                placeholder="House Unit Number, Street">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_address2">Address Line 2</label>
+                        <div class="input-container">
+                            <input type="text" id="emergency2_address2" name="emer2_add2"
+                                placeholder="Housing area (Taman)">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_phone">Handphone No. <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="tel" id="emergency2_phone" name="emer2_tel" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emergency2_contact_time">Best time to Contact <span
+                                class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="emergency2_contact_time" name="emer2_contact_time" required>
+                                <option value="">Select</option>
+                                <option value="9:00AM TO 10:00AM">9:00AM TO 10:00AM</option>
+                                <option value="10:00AM TO 11:00AM">10:00AM TO 11:00AM</option>
+                                <option value="11:00AM TO 12:00PM">11:00AM TO 12:00PM</option>
+                                <option value="12:00PM TO 1:00PM">12:00PM TO 1:00PM</option>
+                                <option value="1:00PM TO 2:00PM">1:00PM TO 2:00PM</option>
+                                <option value="2:00PM TO 3:00PM">2:00PM TO 3:00PM</option>
+                                <option value="3:00PM TO 4:00PM">3:00PM TO 4:00PM</option>
+                                <option value="4:00PM TO 5:00PM">4:00PM TO 5:00PM</option>
+                                <option value="5:00PM TO 6:00PM">5:00PM TO 6:00PM</option>
+                                <option value="ANYTIME PERIOD">ANYTIME PERIOD</option>
+                            </select>
+                            <span class="input-icon">▼</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 5: Product Selection -->
+                <!-- Step 4: Employment Information -->
                 <div class="form-step" data-step="5">
-                    <div class="input-group">
-                        <label for="prod_group">Product Group *</label>
-                        <select id="prod_group" name="prod_group" required>
-                            <option value="H">Hire Purchase</option>
-                        </select>
+                    <div class="field-group">
+                        <label for="employment_occupation">Type of Occupation <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="employment_occupation" name="occupation" required>
+                                <option value="">Select</option>
+                                <option value="ACCOUNTANT AND AUDITOR">ACCOUNTANT AND AUDITOR</option>
+                                <option value="ADMINISTRATION (EXECUTIVE AND ABOVE)">ADMINISTRATION (EXECUTIVE AND
+                                    ABOVE)</option>
+                                <option value="ASSISTANT MANAGER">ASSISTANT MANAGER</option>
+                                <option value="BEAUTICIAN">BEAUTICIAN</option>
+                                <option value="CASHIER">CASHIER</option>
+                                <option value="CHEF">CHEF</option>
+                                <option value="CHILD CARE RELATED">CHILD CARE RELATED</option>
+                                <option value="CLEANER">CLEANER</option>
+                                <option value="CLERICAL (NON-EXECUTIVE AND BELOW)">CLERICAL (NON-EXECUTIVE AND BELOW)
+                                </option>
+                                <option value="COLLECTION AGENCY">COLLECTION AGENCY</option>
+                                <option value="CONSTRUCTION WORKER">CONSTRUCTION WORKER</option>
+                                <option value="CUSTOMER SERVICE REPRESENTATIVE">CUSTOMER SERVICE REPRESENTATIVE</option>
+                                <option value="DESIGNER">DESIGNER</option>
+                                <option value="DRIVER">DRIVER</option>
+                                <option value="EDITOR">EDITOR</option>
+                                <option value="ENGINEER">ENGINEER</option>
+                                <option value="EXECUTIVE">EXECUTIVE</option>
+                                <option value="GENERAL WORKER">GENERAL WORKER</option>
+                                <option value="GOVERNMENT SERVANT">GOVERNMENT SERVANT</option>
+                                <option value="HUMAN RESOURCE">HUMAN RESOURCE</option>
+                                <option value="INFORMATION TECHNOLOGY RELATED">INFORMATION TECHNOLOGY RELATED</option>
+                                <option value="INSURANCE AGENT">INSURANCE AGENT</option>
+                                <option value="LABORATORY RELATED">LABORATORY RELATED</option>
+                                <option value="LAWYER">LAWYER</option>
+                                <option value="MANAGEMENT (MANAGER AND ABOVE)">MANAGEMENT (MANAGER AND ABOVE)</option>
+                                <option value="MEDICAL RELATED">MEDICAL RELATED</option>
+                                <option value="NURSE">NURSE</option>
+                                <option value="OPERATOR">OPERATOR</option>
+                                <option value="POLICE">POLICE</option>
+                                <option value="REAL ESTATE AGENT">REAL ESTATE AGENT</option>
+                                <option value="SALES AND MARKETING">SALES AND MARKETING</option>
+                                <option value="SECURITY GUARD">SECURITY GUARD</option>
+                                <option value="SERVICE">SERVICE</option>
+                                <option value="SPORT RELATED">SPORT RELATED</option>
+                                <option value="SUPERVISOR">SUPERVISOR</option>
+                                <option value="TAILOR">TAILOR</option>
+                                <option value="TEACHER">TEACHER</option>
+                                <option value="TECHNICIAN">TECHNICIAN</option>
+                                <option value="TRAINER">TRAINER</option>
+                                <option value="VETERINARIAN">VETERINARIAN</option>
+                                <option value="WAITER AND WAITRESS">WAITER AND WAITRESS</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="product">Product *</label>
-                        <select id="product" name="product" required>
-                            <option value="HPM">HP - MOTORCYCLE</option>
-                            <option value="SHM">HP - SECOND HAND MOTOR</option>
-                        </select>
+
+                    <div class="field-group">
+                        <label for="employment_nature">Nature of Business <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="employment_nature" name="nature_of_biz" required>
+                                <option value="">Select</option>
+                                <option value="AGRICULTURE, FORESTRY AND FISHERIES">AGRICULTURE, FORESTRY AND FISHERIES
+                                </option>
+                                <option value="CONSTRUCTION">CONSTRUCTION</option>
+                                <option value="FINANCE/BANKING/INSURANCE">FINANCE/BANKING/INSURANCE</option>
+                                <option value="GOVERNMENT SERVICE">GOVERNMENT SERVICE</option>
+                                <option value="LOGISTIC">LOGISTIC</option>
+                                <option value="MANUFACTURE">MANUFACTURE</option>
+                                <option value="REAL ESTATE">REAL ESTATE</option>
+                                <option value="RETAIL">RETAIL</option>
+                                <option value="SELF EMPLOYED">SELF EMPLOYED</option>
+                                <option value="SERVICES">SERVICES</option>
+                                <option value="TELECOMMUNICATION, WATER, GAS">TELECOMMUNICATION, WATER, GAS</option>
+                                <option value="TRANSPORT">TRANSPORT</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="brand">Brand *</label>
-                        <select id="brand" name="brand" required>
-                            <option value="">Select Brand</option>
-                            <option value="MT_HONDA">HONDA</option>
-                            <option value="MT_YAMAHA">YAMAHA</option>
-                            <option value="MT_SUZUKI">SUZUKI</option>
-                            <option value="MT_MODENAS">MODENAS</option>
-                        </select>
+
+                    <div class="field-group">
+                        <label for="employment_years">Years of Service <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" id="employment_years" name="service_years" min="0" max="99" required
+                                placeholder="Years">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="model">Model *</label>
-                        <input type="text" id="model" name="model" placeholder="Enter Model Name" required>
+
+                    <div class="field-group">
+                        <label for="employment_months">Months of Service <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" id="employment_months" name="service_months" min="0" max="11" required
+                                placeholder="Months">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="price">Cash Price (RM) *</label>
-                        <input type="number" id="price" name="price" step="0.01" required>
+
+                    <div class="field-group">
+                        <label for="employment_salary_date">Salary Date <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="employment_salary_date" name="salary_date" required>
+                                <option value="">Select</option>
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="ME">Month End</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_net_salary">Net Salary <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="employment_net_salary" name="net_salary" required
+                                placeholder="RM 0.00">
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_basic_salary">Basic Salary <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="employment_basic_salary" name="income" required
+                                placeholder="RM 0.00">
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_type">Employment Type <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="employment_type" name="emp_type" required>
+                                <option value="">Select</option>
+                                <option value="COMMISSION">COMMISSION</option>
+                                <option value="CONTRACT">CONTRACT</option>
+                                <option value="PERMANENT">PERMANENT</option>
+                                <option value="PROBATION">PROBATION</option>
+                                <option value="RETIREMENT">RETIREMENT</option>
+                                <option value="SELF-EMPLOYED">SELF-EMPLOYED</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_oversea">Work Oversea <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="employment_oversea" name="work_oversea" required>
+                                <option value="">Select</option>
+                                <option value="WORKING IN MALAYSIA">WORKING IN MALAYSIA</option>
+                                <option value="WORKING IN SINGAPORE">WORKING IN SINGAPORE</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_company">Company Name <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="employment_company" name="emp_name" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_postcode">Office Postcode <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="employment_postcode" name="co_postcode" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_city">Office City <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="employment_city" name="co_city" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_state">Office State <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="employment_state" name="co_state" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_address1">Office Address Line 1 <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="text" id="employment_address1" name="emp_address" required
+                                placeholder="Unit, Level, Building">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_address2">Office Address Line 2</label>
+                        <div class="input-container">
+                            <input type="text" id="employment_address2" name="co_add2" placeholder="Street, Area">
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="employment_phone">Office Tel No. <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="tel" id="employment_phone" name="office_tel" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 5: Product Selection -->
+                <div class="form-step" data-step="6">
+                    <div class="field-group">
+                        <label for="product_group">Product Group <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="product_group" name="prod_group" required>
+                                <option value="">Select</option>
+                                <option value="H">HIRE PURCHASE</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="product_select">Product <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="product_select" name="product" required>
+                                <option value="">Select</option>
+                                <option value="HPM">HP - MOTORCYCLE</option>
+                                <option value="SHM">HP - SECOND HAND MOTOR</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="product_brand">Brand <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="product_brand" name="brand" required>
+                                <option value="">Select</option>
+                                <option value="AFAZ">AFAZ</option>
+                                <option value="APRILIA">APRILIA</option>
+                                <option value="ARIIC">ARIIC</option>
+                                <option value="AVETA">AVETA</option>
+                                <option value="BENDA">BENDA</option>
+                                <option value="BENELLI">BENELLI</option>
+                                <option value="BMW">BMW</option>
+                                <option value="BRIXTON">BRIXTON</option>
+                                <option value="CFMOTO">CFMOTO</option>
+                                <option value="CMC">CMC</option>
+                                <option value="DEMAK">DEMAK</option>
+                                <option value="DUCATI">DUCATI</option>
+                                <option value="GLORIOUS HOME">GLORIOUS HOME</option>
+                                <option value="GPX">GPX</option>
+                                <option value="HONDA">HONDA</option>
+                                <option value="ITALJET">ITALJET</option>
+                                <option value="KAMAX">KAMAX</option>
+                                <option value="KAWASAKI">KAWASAKI</option>
+                                <option value="KEEWAY">KEEWAY</option>
+                                <option value="KTM">KTM</option>
+                                <option value="KTNS">KTNS</option>
+                                <option value="KYMCO">KYMCO</option>
+                                <option value="LAMBRETTA">LAMBRETTA</option>
+                                <option value="MODA">MODA</option>
+                                <option value="MODENAS">MODENAS</option>
+                                <option value="MOMOS">MOMOS</option>
+                                <option value="MORBIDELLI">MORBIDELLI</option>
+                                <option value="MOTO MORINI">MOTO MORINI</option>
+                                <option value="MV AGUSTA">MV AGUSTA</option>
+                                <option value="NAZA">NAZA</option>
+                                <option value="PIAGGIO">PIAGGIO</option>
+                                <option value="QJ MOTOR">QJ MOTOR</option>
+                                <option value="REGAL RAPTOR">REGAL RAPTOR</option>
+                                <option value="ROYAL ALLOY">ROYAL ALLOY</option>
+                                <option value="ROYAL ENFIELD">ROYAL ENFIELD</option>
+                                <option value="SCOMADI">SCOMADI</option>
+                                <option value="SM_SPORT">SM_SPORT</option>
+                                <option value="SUZUKI">SUZUKI</option>
+                                <option value="SYM">SYM</option>
+                                <option value="TAYO">TAYO</option>
+                                <option value="VESPA">VESPA</option>
+                                <option value="VOGE">VOGE</option>
+                                <option value="WMOTO">WMOTO</option>
+                                <option value="YADEA">YADEA</option>
+                                <option value="YAMAHA">YAMAHA</option>
+                                <option value="ZONGSHEN">ZONGSHEN</option>
+                                <option value="ZONTES">ZONTES</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="product_model">Model <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="product_model" name="model" required disabled>
+                                <option value="">Select Brand First</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="product_price">Cash Price <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="product_price" name="price" required
+                                placeholder="RM 0.00">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Step 6: Confirmation -->
-                <div class="form-step" data-step="6">
-                    <div class="confirmation-box">
-                        <p>I/We hereby give consent to process and store my data for this application and credit checks.
-                        </p>
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="consent" name="consent" required>
-                            <label for="consent">I agree to the Terms and Conditions</label>
+                <!-- Step 5.1: Product Information (Calculation Page) -->
+                <div class="form-step" data-step="7">
+                    <span class="text-danger">The figures calculated below are estimates and for informational purposes only.</span>
+                    
+                    <div class="field-group">
+                        <label for="calc_processing_fee">Processing Fee (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" id="calc_processing_fee" name="processing_fee" value="200" readonly required>
                         </div>
                     </div>
-                    <div class="summary-preview">
-                        <!-- Summary could be dynamically built here -->
+
+                    <div class="field-group">
+                        <label for="calc_tenure">Tenure <span class="required">*</span></label>
+                        <div class="input-container">
+                            <select id="calc_tenure" name="tenure" required>
+                                <option value="">Select</option>
+                                <option value="12">12 months</option>
+                                <option value="24">24 months</option>
+                                <option value="36">36 months</option>
+                                <option value="48">48 months</option>
+                                <option value="60">60 months</option>
+                            </select>
+                            <span class="input-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_down_payment">Down Payment (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_down_payment" name="down_payment" value="0.00" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_interest_rate">Interest Rate <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_interest_rate" name="interest_rate" value="9.96" required>
+                            <span class="input-icon">✕</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_total_cash_price">Total Cash Price (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_total_cash_price" name="total_cash_price" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_finance_amount">Finance Amount (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_finance_amount" name="finance_amount" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_total_interest">Total Interest Amount (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_total_interest" name="total_interest" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_total_amount">Total Amount (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_total_amount" name="total_amount" readonly required>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="calc_monthly_instalment">Monthly Instalment Amount (RM) <span class="required">*</span></label>
+                        <div class="input-container">
+                            <input type="number" step="0.01" id="calc_monthly_instalment" name="monthly_instalment" readonly required>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Step 8: Document Upload -->
+                <div class="form-step" data-step="8">
+                    <p class="step-instruction">Please upload the required documents. Only <strong>MyKad</strong> and <strong>Latest Payslip/SSM</strong> are compulsory, but others are recommended for faster approval.</p>
+                    
+                    <div class="field-group">
+                        <label for="file_mykad">OCR: MyKad <span class="required">*</span></label>
+                        <div class="input-container file-input-container">
+                            <input type="file" id="file_mykad" name="File_MyKad" accept="image/*,.pdf" required>
+                            <div class="file-info" id="info_File_MyKad">No file chosen</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="file_payslip">OCR: Latest Payslip/SSM <span class="required">*</span></label>
+                        <div class="input-container file-input-container">
+                            <input type="file" id="file_payslip" name="File_Payslip" accept="image/*,.pdf" required>
+                            <div class="file-info" id="info_File_Payslip">No file chosen</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="file_ssm">Application Form / Latest SSM</label>
+                        <div class="input-container file-input-container">
+                            <input type="file" id="file_ssm" name="File_SSM" accept="image/*,.pdf">
+                            <div class="file-info" id="info_File_SSM">No file chosen</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="file_bank">OCR: Latest Bank Statement</label>
+                        <div class="input-container file-input-container">
+                            <input type="file" id="file_bank" name="File_Bank" accept="image/*,.pdf">
+                            <div class="file-info" id="info_File_Bank">No file chosen</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="file_epf">OCR: Latest EPF Statement</label>
+                        <div class="input-container file-input-container">
+                            <input type="file" id="file_epf" name="File_EPF" accept="image/*,.pdf">
+                            <div class="file-info" id="info_File_EPF">No file chosen</div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="file_utilities">Latest Supporting docs (Utilities, etc)</label>
+                        <div class="input-container file-input-container">
+                            <input type="file" id="file_utilities" name="File_Utilities" accept="image/*,.pdf">
+                            <div class="file-info" id="info_File_Utilities">No file chosen</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 9: Consent -->
+                <div class="form-step" data-step="9">
+                    <div class="field-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="consent_checkbox" name="consent" value="Y" required>
+                            <span class="checkmark"></span>
+                            I/We hereby give my consent to JCL Credit Leasing Sdn Bhd (JCL) to process and store my/our
+                            company and personal data. I understand that JCL may conduct credit checks on me and where
+                            applicable, our director(s), shareholder(s) and guarantor(s) (collectively the “Parties”)
+                            through credit reporting agencies registered under Credit Reporting Agency Act at any time
+                            for as long as I/we have a trade relationship with JCL or where any dues remain unpaid and
+                            outstanding with you. <span class="required">*</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-step" data-step="8"></div>
 
                 <div class="form-buttons">
                     <button type="button" id="prev-btn" class="btn btn-secondary" style="display: none;">Back</button>
-                    <button type="button" id="next-btn" class="btn btn-primary">Next</button>
-                    <button type="submit" id="submit-btn" class="btn btn-success" style="display: none;">Submit
+                    <button type="button" id="next-btn" class="btn btn-primary">Proceed</button>
+                    <button type="submit" id="submit-btn" class="btn btn-primary" style="display: none;">Submit
                         Application</button>
                 </div>
             </form>
@@ -285,12 +1021,11 @@
     </div>
 
     <!-- Success Modal -->
-    <div id="success-modal" class="modal">
+    <div id="success-modal" class="success-modal">
         <div class="modal-content">
-            <div class="success-icon">✓</div>
-            <h2>Submitted!</h2>
-            <p>Your application has been received. We will contact you shortly.</p>
-            <button onclick="location.reload()" class="btn btn-primary">Close</button>
+            <h2>Success!</h2>
+            <p>Your application has been submitted successfully.</p>
+            <button class="btn btn-primary" id="close-modal">Close</button>
         </div>
     </div>
 
